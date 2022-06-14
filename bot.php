@@ -47,9 +47,10 @@ if(strpos($message, "/url") === 0){
  $result = curl_exec($curl);
  curl_close($curl);
  $data = json_decode($result, true);
+$result1 = $data['domains'];
 
     if ($result1 == true) {
-    send_MDmessage($chat_id,$message_id, "$data");
+    send_MDmessage($chat_id,$message_id, "$result1");
     }
 else {
     send_MDmessage($chat_id,$message_id, "***Coloque un URL valido***");
