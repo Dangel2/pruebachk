@@ -1,0 +1,26 @@
+{
+    "name": "chk_dangel",
+    "description": "A simple PHP powered Telegram Bot",
+    "keywords": [
+        "PHP",
+        "Telegram",
+        "Bot"
+    ],
+    "repository": "https://github.com/Dangel2/chk_dangel",
+    "success_url": "/",
+    "env": {
+        "API_TOKEN": {
+            "description": "API Token , get it from @BotFather"
+        },
+        "CHAT": {
+           "description": "Enter Your Channel or Chat Username eg- @DanGel_Glr"
+    }
+    },
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "image": "heroku/php"
+}
