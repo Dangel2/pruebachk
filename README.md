@@ -1,4 +1,4 @@
-# chk_dangel
+# pruebachk
 
 PHP BIN Checker Bot
 
