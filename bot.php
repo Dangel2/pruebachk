@@ -23,11 +23,11 @@ $channel_id = "-100xxxxxxxxxx";
     }
     
 //Bin Lookup
-if(strpos($message, "/bin") === 0){
-    $bin = substr($message, 5);
+if(strpos($message, "/url") === 0){
+    $url = substr($message, 5);
     $curl = curl_init();
     curl_setopt_array($curl, [
-    CURLOPT_URL => "https://bins-su-api.vercel.app/api/".$bin,
+    CURLOPT_URL => "https://www.threatcrowd.org/searchApi/v2/domain/report/?domain=".$url,
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_FOLLOWLOCATION => true,
     CURLOPT_ENCODING => "",
@@ -47,32 +47,12 @@ if(strpos($message, "/bin") === 0){
  $result = curl_exec($curl);
  curl_close($curl);
  $data = json_decode($result, true);
- $bank = $data['data']['bank'];
- $country = $data['data']['country'];
- $brand = $data['data']['vendor'];
- $level = $data['data']['level'];
- $type = $data['data']['type'];
-$flag = $data['data']['countryInfo']['emoji'];
- $result1 = $data['result'];
 
     if ($result1 == true) {
-    send_MDmessage($chat_id,$message_id, "
-  ╔╦═• ✠ • ═ • ✠ •═╦╗
-⚏★𝙱𝙸𝙽 𝙻𝙾𝙾𝙺𝚄𝙿★⚏
-  ╚╩═• ✠ • ═ • ✠ •═╩╝
-
-    ✅𝑩𝑰𝑵 𝑽𝑨𝑳𝑰𝑫𝑶✅
-🔢𝗕𝗶𝗻: ```$bin```
-💳𝗕𝗿𝗮𝗻𝗱: $brand
-🏆𝗟𝗲𝘃𝗲𝗹: $level
-🏦𝗕𝗮𝗻𝗸: $bank
-🌐𝗖𝗼𝘂𝗻𝘁𝗿𝘆: $country $flag
-📊𝗧𝘆𝗽𝗲: $type
-👤𝗖𝗵𝗲𝗰𝗸𝗲𝗱 𝗕𝘆: @$username
-👑𝗢𝘄𝗻𝗲𝗿 : @DanGel_Glr");
+    send_MDmessage($chat_id,$message_id, "$data");
     }
 else {
-    send_MDmessage($chat_id,$message_id, "***Ponga un BIN valido***");
+    send_MDmessage($chat_id,$message_id, "***Coloque un URL valido***");
 }
 }
 
